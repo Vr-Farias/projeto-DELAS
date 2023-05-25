@@ -1,16 +1,17 @@
 {
-  "name": "projeto",
+  "name": "projeto-delas",
   "version": "1.0.0",
-  "description": "teste inicial projeto senac",
+  "description": "Projeto integrador de marketplace",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
   },
-  "author": "",
+  "author": "Vanessa-Farias",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
+    "mongoose": "^7.2.1",
     "nodemon": "^2.0.22"
   }
 }
