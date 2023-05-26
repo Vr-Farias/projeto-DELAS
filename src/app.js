@@ -1,6 +1,7 @@
 const express = require("express")
 const index = require("./routes/index")
 const db = require("./config/dbConnect")
+const empreendedoras = require("./models/empreendedoras")
 const app = express()
 
 
@@ -11,7 +12,8 @@ db.once("open", () => {
 
 
 app.use(express.json());
-app.use("/", index)
+app.use("/", index);
+app.use("/empreendedoras", empreendedoras)
 
 
 
