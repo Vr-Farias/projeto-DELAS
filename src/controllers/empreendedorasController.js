@@ -1,13 +1,39 @@
 const empreendedoras = require("../models/empreendedoras.js");
 
 class EmpreendedoraController {
+
+  // GET
   static getAllEmpreendedoras = (req, res) => {
     empreendedoras.find((err, empreendedoras) => {
       res.status(200).json(empreendedoras);
     });
   };
 
+  static getEmpreendedoraById = (req, res) => {
+    const id = req.params.id;
 
+    empreendedoras.findById(id, (err, empreendedoras) => {
+        if (err) {
+            res.status(400).send({ message: `${err.message} - Id da Empreendedora não localizado.` })
+        } else {
+            res.status(200).send(empreendedoras);
+        }
+    })
+}
+
+static getByEmpreendimento = (req, res) => {
+    const parametros = req.query
+    empreendedoras.find(parametros, function (err, empreendedoras) {
+        if (err) {
+            res.status(500).send({ message: err.message })
+        } else {
+
+            res.status(200).send(empreendedoras);
+        }
+    })
+}
+
+// CREATE
   static createEmpreendedoras = (req, res) => {
     let empreendedora = new empreendedoras(req.body);
 
@@ -22,7 +48,7 @@ class EmpreendedoraController {
     });
   };
 
-
+// UPDATE
   static updateEmpreendedoras = (req, res) => {
     const id = req.params.id;
     empreendedoras.findByIdAndUpdate(id, { $set: req.body }, (err) => {
@@ -36,7 +62,7 @@ class EmpreendedoraController {
     });
   };
 
-
+// DELETE
   static deleteEmpreendedoras = (req, res) => {
     const id = req.params.id;
     empreendedoras.findByIdAndDelete(id, (err) => {
