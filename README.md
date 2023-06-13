@@ -41,7 +41,7 @@ Os clientes também podem criar um perfil na plataforma, fornecendo seus dados p
 
 ## Status do Projeto
 
-### Em construção...
+### Finalizado.
 
 <br>
 <br>
